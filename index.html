@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tschanz Cleantechnik GmbH | Reinigungsunternehmen</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(180deg, #f4fbff 0%, #eef8f5 48%, #ffffff 100%);
+      color: #10242f;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(244, 251, 255, 0.86);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(20, 94, 128, 0.12);
+    }
+
+    .navbar {
+      max-width: 1180px;
+      margin: auto;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -0.8px;
+      color: #0f3446;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 43px;
+      height: 43px;
+      border-radius: 14px;
+      background: linear-gradient(145deg, #24a7ff, #28d99b);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 24px;
+    }
+
+    .logo span {
+      color: #20b889;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+      font-size: 15px;
+      font-weight: 800;
+      color: #244858;
+    }
+
+    .nav-links a {
+      position: relative;
+      transition: 0.25s;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #24a7ff, #28d99b);
+      transition: 0.25s;
+    }
+
+    .nav-links a:hover {
+      color: #168ecb;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      max-width: 1180px;
+      margin: auto;
+      padding: 86px 22px 70px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e3f6ff;
+      color: #147eb5;
+      padding: 10px 17px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 900;
+      margin-bottom: 23px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 1.02;
+      color: #0f3446;
+      margin-bottom: 22px;
+    }
+
+    .highlight {
+      color: #20b889;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #4b6470;
+      max-width: 590px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 25px;
+      border-radius: 999px;
+      font-weight: 900;
+      transition: 0.25s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #24a7ff, #20b889);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      filter: brightness(0.96);
+    }
+
+    .btn-outline {
+      border: 2px solid #0f3446;
+      color: #0f3446;
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .btn-outline:hover {
+      background: #0f3446;
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    .contact-box {
+      background: rgba(255, 255, 255, 0.88);
+      padding: 48px;
+      border-radius: 42px;
+      box-shadow: 0 24px 75px rgba(15, 52, 70, 0.11);
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 44px;
+    }
+
+    .contact-info h2 {
+      font-size: clamp(31px, 4vw, 46px);
+      line-height: 1.1;
+      margin-bottom: 17px;
+      color: #0f3446;
+    }
+
+    .contact-info p {
+      color: #4b6470;
+      margin-bottom: 20px;
+    }
+
+    .contact-detail {
+      background: #eefaff;
+      padding: 18px;
+      border-radius: 24px;
+      margin-bottom: 13px;
+      color: #244858;
+      font-weight: 800;
+      border: 1px solid rgba(36, 167, 255, 0.12);
+    }
+
+    form {
+      display: grid;
+      gap: 15px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(20, 94, 128, 0.16);
+      border-radius: 19px;
+      padding: 16px 17px;
+      background: #f7fcff;
+      font-size: 15px;
+      outline: none;
+      transition: 0.25s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #24a7ff;
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(36, 167, 255, 0.1);
+    }
+
+    textarea {
+      min-height: 135px;
+      resize: vertical;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 36px 22px;
+      background: #0f3446;
+      color: #fff;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#home" class="logo">
+        <span class="logo-mark">✦</span>
+        Tschanz <span>Cleantechnik</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#ablauf">Ablauf</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+      <a href="#kontakt" class="nav-button">Offerte anfordern</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <div class="badge">✨ Sauberkeit · Hygiene · Zuverlässigkeit</div>
+        <h1>Reinigung, die <span class="highlight">sichtbar</span> überzeugt.</h1>
+        <p>
+          Tschanz Cleantechnik GmbH steht für gründliche, zuverlässige und moderne Reinigungsdienstleistungen. Für
+          private Haushalte, Büros, Gewerbeflächen und Liegenschaften.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#kontakt" class="btn btn-primary">Kostenlose Offerte anfordern</a>
+          <a href="#leistungen" class="btn btn-outline">Leistungen ansehen</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="contact-box">
+        <div class="contact-info">
+          <h2>Jetzt Reinigung anfragen</h2>
+          <p>
+            Senden Sie uns eine Anfrage für eine Offerte, einen Reinigungstermin oder eine persönliche Beratung.
+            Wir melden uns schnellstmöglich bei Ihnen.
+          </p>
+          <div class="contact-detail">📍 Standort: Musterort, Schweiz</div>
+          <div class="contact-detail">✉️ info@tschanz-cleantechnik.ch</div>
+          <div class="contact-detail">📞 +41 00 000 00 00</div>
+        </div>
+
+        <!-- Formspree Contact Form -->
+        <form action="https://formspree.io/f/mayqzojj" method="POST">
+          <input type="text" name="name" placeholder="Ihr Name" required />
+          <input type="email" name="email" placeholder="Ihre E-Mail" required />
+          <input type="tel" name="phone" placeholder="Telefonnummer (optional)" />
+          <textarea name="message" placeholder="Ihre Nachricht" required></textarea>
+          <button type="submit">Offerte anfordern</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Tschanz Cleantechnik GmbH. Professionelle Reinigung & Sauberkeit.</p>
+  </footer>
+</body>
+
+</html>
